@@ -1,7 +1,9 @@
 import React from 'react';
 import { 
   Printer, BookOpen, PenTool, Image as ImageIcon, Star, 
-  Music, Car, Bird, Book, CircleDashed, Key, Hand, Box 
+  Music, Car, Bird, Book, CircleDashed, Key, Hand, Box,
+  Leaf, Flower, ArrowLeftRight, Check, X, ShieldQuestion,
+  Search, Smile, CloudRain
 } from 'lucide-react';
 
 const Page = ({ children, pageNum, headerText }: { children: React.ReactNode, pageNum: number, headerText?: string }) => (
@@ -382,6 +384,405 @@ export default function App() {
               ))}
            </div>
         </div>
+      </Page>
+
+      {/* --- PAGE 11: Word making & Image completion --- */}
+      <Page pageNum={11} headerText="حروف ملا کر لفظ بنائیں">
+        <SectionHeader num="۱۵" text="رنگ بھر کر لفظ بنائیں اور لکھیں۔" />
+        <div className="flex flex-col md:flex-row gap-8 justify-around items-center bg-green-50/30 p-8 rounded-2xl border border-green-100 print:bg-transparent print:border-gray-300">
+           {/* Leaves shape 1 */}
+           <div className="flex flex-col items-center gap-4">
+              <div className="flex gap-2">
+                 <div className="w-16 h-16 bg-green-200 rounded-full flex items-center justify-center text-2xl font-bold text-green-900 shadow print:border print:border-black">ت</div>
+                 <div className="w-16 h-16 bg-green-200 rounded-full flex items-center justify-center text-2xl font-bold text-green-900 shadow print:border print:border-black">ا</div>
+                 <div className="w-16 h-16 bg-green-200 rounded-full flex items-center justify-center text-2xl font-bold text-green-900 shadow print:border print:border-black">ج</div>
+              </div>
+              <input type="text" className="border-b-2 border-gray-400 text-center text-3xl outline-none w-32 bg-transparent focus:border-green-500" />
+           </div>
+           {/* Leaves shape 2 */}
+           <div className="flex flex-col items-center gap-4">
+              <div className="flex gap-2">
+                 <div className="w-16 h-16 bg-orange-200 rounded-full flex items-center justify-center text-2xl font-bold text-orange-900 shadow print:border print:border-black">ر</div>
+                 <div className="w-16 h-16 bg-orange-200 rounded-full flex items-center justify-center text-2xl font-bold text-orange-900 shadow print:border print:border-black">ا</div>
+                 <div className="w-16 h-16 bg-orange-200 rounded-full flex items-center justify-center text-2xl font-bold text-orange-900 shadow print:border print:border-black">ز</div>
+              </div>
+              <input type="text" className="border-b-2 border-gray-400 text-center text-3xl outline-none w-32 bg-transparent focus:border-orange-500" />
+           </div>
+        </div>
+
+        <div className="mt-12">
+            <SectionHeader num="۱۶" text="درست حرف لگا کر تصویر کا نام مکمل کریں۔" />
+            <div className="grid grid-cols-2 gap-8 mt-6">
+            {[
+                { img: 'گوبھی', p: 'گو', s: 'بھی' },
+                { img: 'گاڑی', p: 'گا', s: 'ڑی' },
+                { img: 'ٹافی', p: 'ٹا', s: 'فی' },
+                { img: 'روٹی', p: 'رو', s: 'ٹی' },
+            ].map((item, idx) => (
+                <div key={idx} className="flex gap-6 items-center p-4 border-2 border-indigo-50 rounded-xl print:border-gray-200 bg-white">
+                    <div className="w-20 h-20 bg-gray-100 flex items-center justify-center rounded-xl border border-gray-200"><ImageIcon className="text-gray-400" size={32}/></div>
+                    <div className="flex flex-col gap-2 flex-1">
+                    <div className="flex items-center gap-4">
+                        <div className="w-8 h-8 rounded border-2 border-gray-300"></div>
+                        <span className="text-2xl font-bold text-gray-700">{item.p}____</span>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <div className="w-8 h-8 rounded border-2 border-gray-300"></div>
+                        <span className="text-2xl font-bold text-gray-700">____</span>
+                    </div>
+                    </div>
+                </div>
+            ))}
+            </div>
+        </div>
+      </Page>
+
+      {/* --- PAGE 12: Hai/Hain/Hoon & Change Letter --- */}
+      <Page pageNum={12} headerText="قواعد اور لفظوں کا کھیل">
+         <SectionHeader num="۱۷" text="دیے ہوئے جملے غور سے پڑھیں کہ 'ہے'، 'ہیں' اور 'ہوں' کہاں استعمال ہوتے ہیں۔" />
+         <div className="bg-blue-50/40 p-6 rounded-2xl border border-blue-100 space-y-4 print:bg-transparent print:border-gray-300 print:py-4">
+            <p className="text-2xl">زارا پہلی جماعت میں پڑھتی <span className="text-red-500 font-bold">ہے</span>۔</p>
+            <p className="text-2xl">پرندے درختوں پر بیٹھے <span className="text-red-500 font-bold">ہیں</span>۔</p>
+            <p className="text-2xl">میں آم شوق سے کھاتا <span className="text-red-500 font-bold">ہوں</span>۔</p>
+         </div>
+
+         <div className="mt-8">
+            <SectionHeader num="۱۸" text="'ہے'، 'ہیں' اور 'ہوں' کا استعمال کرتے ہوئے خالی جگہ پُر کریں۔" />
+            <div className="space-y-6 px-4 md:px-12 text-2xl leading-loose">
+               <div className="flex items-center gap-4 border-b border-gray-200 pb-2">
+                 <span className="w-4 h-4 rounded-full bg-indigo-300 print:border print:border-black"></span> میں بانو کا بھائی <input type="text" className="w-32 border-b-2 border-gray-500 outline-none text-center bg-transparent focus:border-indigo-500" />
+               </div>
+               <div className="flex items-center gap-4 border-b border-gray-200 pb-2">
+                 <span className="w-4 h-4 rounded-full bg-indigo-300 print:border print:border-black"></span> ہم اکٹھے اسکول جاتے <input type="text" className="w-32 border-b-2 border-gray-500 outline-none text-center bg-transparent focus:border-indigo-500" />
+               </div>
+               <div className="flex items-center gap-4 border-b border-gray-200 pb-2">
+                 <span className="w-4 h-4 rounded-full bg-indigo-300 print:border print:border-black"></span> وہ میری چھوٹی بہن <input type="text" className="w-32 border-b-2 border-gray-500 outline-none text-center bg-transparent focus:border-indigo-500" />
+               </div>
+               <div className="flex items-center gap-4 border-b border-gray-200 pb-2">
+                 <span className="w-4 h-4 rounded-full bg-indigo-300 print:border print:border-black"></span> میں بانو کا خیال رکھتا <input type="text" className="w-32 border-b-2 border-gray-500 outline-none text-center bg-transparent focus:border-indigo-500" />
+               </div>
+            </div>
+         </div>
+
+         <div className="mt-12">
+            <SectionHeader num="۱۹" text="مثال کے مطابق ہر لفظ کا آخری حرف بدل کر نیا لفظ بنائیں۔" />
+            <div className="grid grid-cols-2 gap-x-12 gap-y-6 mt-6 px-4">
+               {[
+                 { w1: 'رات', w2: 'راج' },
+                 { w1: 'جال', w2: '' },
+                 { w1: 'پیڑ', w2: '' },
+                 { w1: 'شان', w2: '' },
+                 { w1: 'روک', w2: '' },
+                 { w1: 'تین', w2: '' },
+               ].map((item, idx) => (
+                 <div key={idx} className="flex gap-4 items-center border border-indigo-100 bg-white rounded-xl overflow-hidden print:border-gray-400">
+                    <div className="bg-indigo-100 text-indigo-900 font-bold p-3 w-28 text-center text-2xl print:bg-gray-100 print:border-r print:border-gray-400">{item.w1}</div>
+                    <input type="text" className="flex-1 text-2xl text-center outline-none bg-transparent" placeholder={item.w2 ? item.w2 : 'نیا لفظ'} />
+                 </div>
+               ))}
+            </div>
+         </div>
+      </Page>
+
+      {/* --- PAGE 13: Reading --- */}
+      <Page pageNum={13} headerText="پڑھنا سیکھیں">
+         <SectionHeader num="۲۰" text="دی ہوئی عبارت درست تلفظ سے پڑھیں اور سوالوں کے جواب دیں۔" />
+         <div className="bg-yellow-50/50 p-8 rounded-2xl border border-yellow-200 text-2xl leading-[2.5] print:bg-transparent print:border-gray-400">
+            ثاقب سویرے اٹھتا ہے۔ وہ دادا جان کے ساتھ مسجد جاتا ہے۔ وہ کچھ دیر باغ کی سیر بھی کرتا ہے۔ وہ اپنی جماعت کا سب سے اچھا طالبعلم ہے۔ ثاقب دوسروں کی مدد کرتا ہے۔ ثاقب کو سب پسند کرتے ہیں۔
+         </div>
+
+         <div className="mt-12 space-y-10">
+            <div className="flex flex-col gap-4">
+               <p className="text-2xl font-bold text-indigo-900 border-r-4 border-indigo-500 pr-4 print:border-gray-800">۱۔ ثاقب کس وقت اٹھتا ہے؟</p>
+               <input type="text" className="w-full border-b-2 border-dashed border-gray-400 outline-none text-2xl p-2 bg-transparent focus:border-indigo-500" />
+            </div>
+            <div className="flex flex-col gap-4">
+               <p className="text-2xl font-bold text-indigo-900 border-r-4 border-indigo-500 pr-4 print:border-gray-800">۲۔ ثاقب دادا جان کے ساتھ کہاں جاتا ہے؟</p>
+               <input type="text" className="w-full border-b-2 border-dashed border-gray-400 outline-none text-2xl p-2 bg-transparent focus:border-indigo-500" />
+            </div>
+            <div className="flex flex-col gap-4">
+               <p className="text-2xl font-bold text-indigo-900 border-r-4 border-indigo-500 pr-4 print:border-gray-800">۳۔ ثاقب دوسروں کے ساتھ کیسے پیش آتا ہے؟</p>
+               <input type="text" className="w-full border-b-2 border-dashed border-gray-400 outline-none text-2xl p-2 bg-transparent focus:border-indigo-500" />
+            </div>
+            <div className="flex flex-col gap-4">
+               <p className="text-2xl font-bold text-indigo-900 border-r-4 border-indigo-500 pr-4 print:border-gray-800">۴۔ ثاقب کو سب کیوں پسند کرتے ہیں؟</p>
+               <input type="text" className="w-full border-b-2 border-dashed border-gray-400 outline-none text-2xl p-2 bg-transparent focus:border-indigo-500" />
+            </div>
+         </div>
+      </Page>
+
+      {/* --- PAGE 14: Meanings & Blanks --- */}
+      <Page pageNum={14} headerText="میرا گھر - الفاظ کے معنی">
+         <SectionHeader num="۲۱" text="دیے ہوئے الفاظ کے معنی سمجھیں اور جملوں میں استعمال کریں۔" />
+         <div className="space-y-6">
+          {[
+            { word: 'باورچی خانہ', hint: '(کھانا پکانے کی جگہ)' },
+            { word: 'مل جل کر', hint: '(اکٹھے ہو کر)' },
+            { word: 'صحن', hint: '(آنگن)' },
+            { word: 'جانب', hint: '(طرف)' },
+          ].map((item, idx) => (
+            <div key={idx} className="border-2 border-blue-50 rounded-xl p-4 flex flex-col gap-4 bg-white print:border-gray-300">
+              <div className="flex items-center gap-4 border-b border-gray-100 pb-2 flex-wrap">
+                <span className="text-2xl font-bold text-blue-900 w-full sm:w-auto">{item.word}</span>
+                <span className="text-gray-400 font-sans mx-2 text-sm">{item.hint}</span>
+                <span className="text-xl text-gray-500 font-bold mr-auto">معنی:</span>
+                <input type="text" className="flex-1 min-w-[200px] border-b border-dashed border-gray-400 outline-none text-2xl p-1 bg-transparent" />
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-xl text-gray-500 font-bold w-16">جملہ:</span>
+                <input type="text" className="flex-1 border-b border-gray-400 outline-none text-2xl p-1 bg-transparent" />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10">
+           <SectionHeader num="۲۲" text="سبق کے مطابق درست اور غلط جواب کی نشان دہی کریں۔" />
+           <div className="bg-orange-50/40 p-6 rounded-2xl border border-orange-100 space-y-6 mt-4 print:bg-transparent print:border-gray-300">
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-between border-b pb-4 border-orange-200 print:border-gray-300">
+                 <p className="text-2xl font-bold text-orange-900 text-center sm:text-right w-full">کمروں کے سامنے ہے:</p>
+                 <div className="flex gap-4">
+                    <label className="bg-white border-2 border-orange-200 px-6 py-2 rounded-xl text-xl cursor-pointer hover:bg-orange-100 print:border-gray-400"><input type="radio" name="q1" className="mr-2"/> باورچی خانہ</label>
+                    <label className="bg-white border-2 border-orange-200 px-6 py-2 rounded-xl text-xl cursor-pointer hover:bg-orange-100 print:border-gray-400"><input type="radio" name="q1" className="mr-2"/> صحن</label>
+                 </div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-between border-b pb-4 border-orange-200 print:border-gray-300">
+                 <p className="text-2xl font-bold text-orange-900 text-center sm:text-right w-full">صحن میں درخت ہیں:</p>
+                 <div className="flex gap-4">
+                    <label className="bg-white border-2 border-orange-200 px-6 py-2 rounded-xl text-xl cursor-pointer hover:bg-orange-100 print:border-gray-400"><input type="radio" name="q2" className="mr-2"/> آم اور کینو کے</label>
+                    <label className="bg-white border-2 border-orange-200 px-6 py-2 rounded-xl text-xl cursor-pointer hover:bg-orange-100 print:border-gray-400"><input type="radio" name="q2" className="mr-2"/> آم اور امرود کے</label>
+                 </div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+                 <p className="text-2xl font-bold text-orange-900 text-center sm:text-right w-full">سارہ کے گھر میں کمرے ہیں:</p>
+                 <div className="flex gap-4">
+                    <label className="bg-white border-2 border-orange-200 px-6 py-2 rounded-xl text-xl cursor-pointer hover:bg-orange-100 print:border-gray-400"><input type="radio" name="q3" className="mr-2"/> دو</label>
+                    <label className="bg-white border-2 border-orange-200 px-6 py-2 rounded-xl text-xl cursor-pointer hover:bg-orange-100 print:border-gray-400"><input type="radio" name="q3" className="mr-2"/> تین</label>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="mt-10">
+           <SectionHeader num="۲۳" text="درست الفاظ لکھ کر خالی جگہ پُر کریں۔" />
+           <div className="space-y-6 text-2xl leading-loose bg-purple-50/40 p-8 rounded-2xl border border-purple-100 print:bg-transparent print:border-gray-300">
+              <div className="flex justify-center flex-wrap gap-4 mb-6 pb-6 border-b border-purple-200 print:border-gray-300">
+                 <span className="bg-white px-4 py-1 rounded-lg border shadow-sm font-bold text-purple-900 print:border-gray-400">مل جل</span>
+                 <span className="bg-white px-4 py-1 rounded-lg border shadow-sm font-bold text-purple-900 print:border-gray-400">مدد</span>
+                 <span className="bg-white px-4 py-1 rounded-lg border shadow-sm font-bold text-purple-900 print:border-gray-400">کیاریاں</span>
+              </div>
+              <p>صحن کی دیوار کے ساتھ پھولوں کی <input type="text" className="w-32 border-b-2 border-purple-400 outline-none text-center bg-transparent focus:border-purple-600" /> ہیں۔</p>
+              <p>گھر میں سب <input type="text" className="w-32 border-b-2 border-purple-400 outline-none text-center bg-transparent focus:border-purple-600" /> کر رہتے ہیں۔</p>
+              <p>سارہ گھر کے کاموں میں امی ابو کی <input type="text" className="w-32 border-b-2 border-purple-400 outline-none text-center bg-transparent focus:border-purple-600" /> کرتی ہے۔</p>
+           </div>
+        </div>
+      </Page>
+
+      {/* --- PAGE 15: Q&A and Conversaton --- */}
+      <Page pageNum={15} headerText="میرا گھر - سوالات و بات چیت">
+         <SectionHeader num="۲۴" text="دیے ہوئے سوالوں کے جواب دیں۔" />
+         <div className="space-y-10 mt-6 px-4">
+            <div className="flex flex-col gap-4">
+               <p className="text-2xl font-bold flex gap-4 text-gray-800"><span className="text-green-600">الف)</span> سارہ کے بھائی کا کیا نام ہے؟</p>
+               <input type="text" className="w-full border-b-2 border-gray-400 outline-none text-2xl p-2 bg-transparent focus:border-green-500" />
+            </div>
+            <div className="flex flex-col gap-4">
+               <p className="text-2xl font-bold flex gap-4 text-gray-800"><span className="text-green-600">ب)</span> سارہ کے گھر میں کون کون رہتا ہے؟</p>
+               <input type="text" className="w-full border-b-2 border-gray-400 outline-none text-2xl p-2 bg-transparent focus:border-green-500" />
+            </div>
+            <div className="flex flex-col gap-4">
+               <p className="text-2xl font-bold flex gap-4 text-gray-800"><span className="text-green-600">ج)</span> آپ کن کن کاموں میں اپنے امی ابو کا ہاتھ بٹاتے ہیں؟</p>
+               <input type="text" className="w-full border-b-2 border-gray-400 outline-none text-2xl p-2 bg-transparent focus:border-green-500" />
+            </div>
+         </div>
+
+         <div className="mt-16">
+            <SectionHeader num="۲۵" text="بات سے نکلے بات: زبانی سوال" />
+            <div className="bg-indigo-50/50 p-8 rounded-2xl flex items-center gap-6 border-2 border-dashed border-indigo-200 print:bg-transparent print:border-gray-400 print:border-solid">
+               <div className="w-16 h-16 shrink-0 bg-indigo-100 rounded-full flex items-center justify-center print:border print:border-gray-300">
+                  <ShieldQuestion size={32} className="text-indigo-600"/>
+               </div>
+               <p className="text-2xl leading-loose font-bold text-indigo-900">
+                  آپس میں بات چیت کریں اور بتائیں کہ آپ کو اپنے گھر کا کون سا حصہ پسند ہے اور کیوں؟
+               </p>
+            </div>
+         </div>
+      </Page>
+
+      {/* --- PAGE 16: Masculine/Feminine --- */}
+      <Page pageNum={16} headerText="مذکر / مونث">
+         <SectionHeader num="۲۶" text="دیے گئے الفاظ کے درست مونث لکھیں یا ملائیں۔" />
+         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12 px-6">
+            {[
+               { m: 'دادا جان', f: 'دادی جان' },
+               { m: 'نانا جان', f: 'نانی جان' },
+               { m: 'تایا جان', f: 'تائی جان' },
+               { m: 'چچا جان', f: 'چچی جان' },
+               { m: 'ماموں جان', f: 'ممانی جان' },
+               { m: 'بھائی جان', f: 'بھابھی / بہن' }
+            ].map((item, idx) => (
+               <div key={idx} className="flex items-center gap-6 p-4 rounded-xl border border-gray-200 bg-gray-50 print:bg-transparent print:border-gray-300">
+                  <div className="bg-indigo-600 text-white font-bold py-3 w-32 text-center rounded-lg shadow-sm text-2xl print:bg-indigo-600 print:text-white print-exact">{item.m}</div>
+                  <ArrowLeftRight className="text-gray-400"/>
+                  <input type="text" className="flex-1 bg-transparent border-b-2 border-gray-400 outline-none text-2xl text-center pb-1 focus:border-indigo-600" placeholder="..." />
+               </div>
+            ))}
+         </div>
+         <div className="mt-16 flex justify-center">
+            <div className="bg-orange-50 w-full p-8 rounded-2xl border-2 border-dashed border-orange-200 flex flex-col gap-4 items-center justify-center text-orange-800 text-2xl print:text-black print:border-solid print:bg-white print:border-gray-400">
+               <Smile size={48} className="text-orange-400"/>
+               یہاں اوپر دیے گئے رشتوں کی تصاویر یا خاکہ بنا سکتے ہیں۔
+            </div>
+         </div>
+      </Page>
+
+      {/* --- PAGE 17: Wahid/Jama & Tha/Thi/Thay --- */}
+      <Page pageNum={17} headerText="واحد جمع / تھا، تھی، تھے">
+         <SectionHeader num="۲۷" text="تصاویر کے مطابق ان کے واحد اور جمع لکھیں۔" />
+         <div className="grid grid-cols-2 gap-x-8 gap-y-12 mt-8 text-center text-2xl bg-green-50/20 p-6 rounded-2xl border border-green-100 print:bg-transparent print:border-gray-300">
+            <div className="font-bold text-green-800 border-b-2 border-green-200 pb-2 print:border-gray-400">واحد</div>
+            <div className="font-bold text-green-800 border-b-2 border-green-200 pb-2 print:border-gray-400">جمع</div>
+
+            <div className="flex flex-col items-center gap-4">
+               <input type="text" className="w-full max-w-[200px] border border-gray-400 bg-white rounded-lg p-2 text-center outline-none focus:border-green-600 focus:border-2" placeholder="بستہ" />
+            </div>
+            <div className="flex flex-col items-center gap-4">
+               <input type="text" className="w-full max-w-[200px] border border-gray-400 bg-white rounded-lg p-2 text-center outline-none focus:border-green-600 focus:border-2" placeholder="بستے" />
+            </div>
+            {/* Rows repeated without images */}
+            {Array.from({length: 4}).map((_, idx) => (
+               <React.Fragment key={idx}>
+                  <div className="flex flex-col items-center pt-6 border-t border-dashed border-green-200 print:border-gray-300">
+                     <input type="text" className="w-full max-w-[200px] border border-gray-400 bg-white rounded-lg p-2 text-center outline-none focus:border-green-600 focus:border-2" />
+                  </div>
+                  <div className="flex flex-col items-center pt-6 border-t border-dashed border-green-200 print:border-gray-300">
+                     <input type="text" className="w-full max-w-[200px] border border-gray-400 bg-white rounded-lg p-2 text-center outline-none focus:border-green-600 focus:border-2" />
+                  </div>
+               </React.Fragment>
+            ))}
+         </div>
+
+         <div className="mt-12">
+            <SectionHeader num="۲۸" text="'تھا، تھی، تھے' لکھ کر جملے مکمل کریں۔" />
+            <div className="space-y-6 text-2xl leading-loose px-4">
+               <p>صبح تیز دھوپ <input type="text" className="w-32 border-b-2 border-gray-500 outline-none text-center bg-transparent focus:border-green-600" /> ۔</p>
+               <p>بچوں نے سبق یاد کیا <input type="text" className="w-32 border-b-2 border-gray-500 outline-none text-center bg-transparent focus:border-green-600" /> ۔</p>
+               <p>دادا جان کل لاہور گئے <input type="text" className="w-32 border-b-2 border-gray-500 outline-none text-center bg-transparent focus:border-green-600" /> ۔</p>
+            </div>
+         </div>
+      </Page>
+
+      {/* --- PAGE 18: Poem & Rule Wahid/Jama --- */}
+      <Page pageNum={18} headerText="بارش - سوالات اور واحد جمع">
+         <SectionHeader num="۲۹" text="دیے ہوئے سوالوں کے جواب دیں۔" />
+         <div className="space-y-8 mt-6 px-4">
+            <div className="flex flex-col gap-2">
+               <p className="text-2xl font-bold flex gap-4 text-blue-900 border-r-4 border-blue-400 pr-4 print:border-gray-800"><span className="text-blue-500">الف)</span> نظم میں کس رنگ کے بادلوں کا ذکر ہے؟</p>
+               <input type="text" className="w-full border-b-2 border-gray-400 outline-none text-2xl p-2 bg-transparent focus:border-blue-500" />
+            </div>
+            <div className="flex flex-col gap-2">
+               <p className="text-2xl font-bold flex gap-4 text-blue-900 border-r-4 border-blue-400 pr-4 print:border-gray-800"><span className="text-blue-500">ب)</span> رنگ برنگے پھول کہاں کھلے ہیں؟</p>
+               <input type="text" className="w-full border-b-2 border-gray-400 outline-none text-2xl p-2 bg-transparent focus:border-blue-500" />
+            </div>
+            <div className="flex flex-col gap-2">
+               <p className="text-2xl font-bold flex gap-4 text-blue-900 border-r-4 border-blue-400 pr-4 print:border-gray-800"><span className="text-blue-500">ج)</span> آپ کو بارش کے موسم میں کیا کرنا پسند ہے اور کیوں؟</p>
+               <input type="text" className="w-full border-b-2 border-gray-400 outline-none text-2xl p-2 bg-transparent focus:border-blue-500" />
+            </div>
+         </div>
+
+         <div className="mt-12">
+            <SectionHeader num="۳۰" text="دیے ہوئے واحد الفاظ غور سے پڑھیں اور ان کی جمع بنائیں۔" />
+            <div className="bg-yellow-50/40 p-6 rounded-2xl border border-yellow-200 mb-6 flex gap-4 text-xl items-center print:bg-transparent print:border-gray-400">
+               <BookOpen className="shrink-0 text-yellow-600"/>
+               <p>یاد رکھیں: لفظ کے آخر میں 'ا' یا 'ہ' ہو تو جمع بناتے وقت اسے 'ے' سے بدل دیتے ہیں۔</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 px-4 text-2xl">
+               {[
+                  { w: 'راستہ', j: 'راستے' },
+                  { w: 'دروازہ', j: '' },
+                  { w: 'تالا', j: '' },
+                  { w: 'طوطا', j: '' },
+                  { w: 'بچہ', j: '' },
+                  { w: 'بستہ', j: '' },
+               ].map((item, idx) => (
+                  <div key={idx} className="flex flex-col">
+                     <div className="flex w-full">
+                        <div className="w-1/2 bg-blue-100 text-blue-900 font-bold p-3 text-center border border-blue-200 rounded-r-lg print:bg-gray-100 print:border-gray-400">{item.w}</div>
+                        <input type="text" className="w-1/2 bg-white text-center border-y border-l border-gray-300 outline-none rounded-l-lg focus:border-blue-500 focus:border-2 print:border-gray-400" placeholder={item.j}/>
+                     </div>
+                  </div>
+               ))}
+            </div>
+         </div>
+      </Page>
+
+      {/* --- PAGE 19: Find & Count --- */}
+      <Page pageNum={19} headerText="گنو اور بتاؤ - ہندسے اور الفاظ">
+         <SectionHeader num="۳۱" text="چیزیں گنیں اور ان کی تعداد ہندسوں اور لفظی گنتی میں لکھیں۔" />
+         
+         <div className="bg-orange-50/30 p-8 rounded-3xl border-2 border-dashed border-orange-200 mt-6 print:border-gray-400 print:border-solid">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 gap-y-12">
+               {[
+                  { title: "پھول (Roses)", count: 3, Icon: Flower },
+                  { title: "کتابیں (Books)", count: 7, Icon: Book },
+                  { title: "پرندے (Birds)", count: 5, Icon: Bird },
+                  { title: "گاڑیاں (Cars)", count: 2, Icon: Car },
+                  { title: "ستارے (Stars)", count: 4, Icon: Star },
+                  { title: "پتے (Leaves)", count: 6, Icon: Leaf }
+               ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-6 bg-white p-4 rounded-2xl shadow-sm border border-gray-100 print:border-gray-300 print:shadow-none">
+                     <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center shrink-0">
+                        <item.Icon size={32}/>
+                     </div>
+                     <div className="flex flex-col gap-2 flex-1">
+                        <span className="text-2xl font-bold text-gray-800">{item.title}</span>
+                        <div className="flex gap-4">
+                           <input type="text" placeholder="ہندسہ" className="w-16 border-b-2 border-dashed border-orange-300 outline-none text-center text-2xl bg-transparent focus:border-orange-600" />
+                           <input type="text" placeholder="لفظی گنتی" className="flex-1 border-b-2 border-dashed border-orange-300 outline-none text-center text-2xl bg-transparent focus:border-orange-600" />
+                        </div>
+                     </div>
+                  </div>
+               ))}
+            </div>
+         </div>
+      </Page>
+
+      {/* --- PAGE 20: Essay/Sentences --- */}
+      <Page pageNum={20} headerText="کچھ نیا لکھیں">
+         <SectionHeader num="۳۲" text="نبی کریم ﷺ کی پیاری عادتوں کے بارے میں چار جملے لکھیں۔" />
+         <div className="bg-green-50/30 p-8 rounded-2xl border border-green-100 min-h-[250px] flex flex-col gap-8 mt-6 print:bg-transparent print:border-gray-400">
+            {[1, 2, 3, 4].map((num) => (
+               <div key={num} className="w-full flex items-end">
+                  <span className="text-xl font-bold text-green-800 ml-4 print:text-black">{num}۔</span>
+                  <div className="flex-1 border-b-2 border-gray-400 border-dashed h-8"></div>
+               </div>
+            ))}
+         </div>
+
+         <div className="mt-12">
+            <SectionHeader num="۳۳" text="تصویر غور سے دیکھیں اور اس میں سے کوئی سے پانچ اسم تلاش کر کے لکھیں۔" />
+            <div className="flex bg-indigo-50 border border-indigo-100 p-6 rounded-2xl print:bg-transparent print:border-gray-300 justify-center mb-6">
+                <ImageIcon size={64} className="text-indigo-300" />
+                <span className="mr-6 text-xl text-indigo-800 flex items-center">(سیر و تفریح کا منظر)</span>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-6">
+               {[1, 2, 3, 4, 5].map((num) => (
+                  <div key={num} className="bg-indigo-50 border border-indigo-100 h-16 rounded-xl flex items-center print:bg-transparent print:border-gray-300 px-2 shadow-sm">
+                     <span className="text-indigo-800 font-bold ml-2 print:text-black">{num}۔</span>
+                     <input type="text" className="w-full bg-transparent outline-none text-xl text-center" />
+                  </div>
+               ))}
+            </div>
+         </div>
+
+         <div className="mt-12">
+            <SectionHeader num="۳۴" text="اپنے گھر کے بارے میں تین جملے لکھیں۔" />
+            <div className="space-y-10 mt-6 px-4">
+               <div className="border-b-2 border-gray-400 w-full h-8"></div>
+               <div className="border-b-2 border-gray-400 w-full h-8"></div>
+               <div className="border-b-2 border-gray-400 w-full h-8"></div>
+            </div>
+         </div>
       </Page>
 
     </div>

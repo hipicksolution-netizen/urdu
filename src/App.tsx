@@ -55,8 +55,8 @@ export default function App() {
       {/* --- PAGE 1: Intro & Meanings --- */}
       <Page pageNum={1} headerText="میرا گھر، میرا خاندان">
         <div className="text-center mb-8 pb-4 border-b-2 border-indigo-100">
-           <h1 className="text-4xl font-black text-indigo-900 font-sans tracking-wide">STARS INTERNATIONAL SCHOOL</h1>
-           <p className="text-xl text-indigo-600 mt-2 font-bold">Summer Vacation Homework</p>
+           <h1 className="text-4xl font-extrabold text-indigo-900 leading-relaxed">اسٹارز انٹرنیشنل اسکول</h1>
+           <p className="text-2xl text-indigo-600 mt-2 font-bold">گرمیوں کی چھٹیوں کا کام</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 bg-indigo-50/50 p-6 rounded-xl border border-indigo-100 print:bg-transparent print:p-0 print:gap-4 print:border-none">

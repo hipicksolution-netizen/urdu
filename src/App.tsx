@@ -9,7 +9,7 @@ const Page = ({ children, pageNum, headerText }: { children: React.ReactNode, pa
     {headerText && (
       <header className="border-b-4 border-indigo-900 pb-4 mb-8 flex items-center justify-between">
         <div>
-           <h1 className="text-3xl text-indigo-900 mb-1" style={{ lineHeight: '1.6' }}>موسم گرما کا کام</h1>
+           {pageNum === 1 && <h1 className="text-3xl text-indigo-900 mb-1" style={{ lineHeight: '1.6' }}>موسم گرما کا کام</h1>}
            <h2 className="text-xl text-gray-700">عنوان: <span className="font-bold relative bottom-1">{headerText}</span></h2>
         </div>
         <div className="bg-indigo-100 text-indigo-800 p-3 rounded-full print:border print:border-indigo-800 print:bg-white">

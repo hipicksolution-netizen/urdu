@@ -1,6 +1,6 @@
 {
   "name": "Urdu Worksheets",
-  "description": "An interactive, printable Urdu summer worksheet.",
+  "description": "Urdu summer pack worksheets.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
